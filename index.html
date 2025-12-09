@@ -35,6 +35,40 @@
       .foto { display: block !important; }
       .tab-content { display: block !important; }
     }
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.columna {
+  width: 140px;        /* Ajusta si quieres más/menos ancho */
+  height: auto;
+  object-fit: contain; /* Mantiene proporción sin recortes */
+}
+
+.contenido {
+  flex: 1;
+  max-width: 900px;    /* Mantén tu ancho de carta */
+}
+
+/* Ajuste responsivo: oculta columnas en móviles estrechos */
+@media (max-width: 1024px) {
+  .columna { display: none; }
+  .contenido { max-width: 100%; }
+}
+
+/* Impresión: muestra columnas y contenido limpio */
+@media print {
+  .layout { gap: 0; }
+  .columna { display: block; width: 120px; }
+  .btn, .top-controls, .tabs { display: none !important; }
+  .foto { display: block !important; }
+  .tab-content { display: block !important; }
+}
+
+    
   </style>
   <script>
     function openTab(evt, tabId) {
@@ -63,6 +97,10 @@
   </script>
 </head>
 <body>
+
+  <div class="layout">
+    <img src="imagenes/cizquierda.jpg" alt="Columna izquierda" class="columna">
+<div class="contenido">
   <header>
     <div class="overlay">
       <h1>🍔 Different Burguer</h1>
@@ -399,11 +437,13 @@
 
 
 
+ <footer>
+        © 2025 Different Burguer · Illescas
+      </footer>
+    </div>
 
-  
-  <footer>
-    © 2025 Different Burguer · Illescas
-  </footer>
+    <img src="imagenes/cderecha.jpg" alt="Columna derecha" class="columna">
+  </div>
 </body>
 </html>                                                                                                                   
                                                                                                                        
